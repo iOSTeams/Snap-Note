@@ -18,10 +18,8 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKz-OD-okw">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" red="1" green="0.023612428809999999" blue="0.044575341710000001" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="KKz-OD-okw" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0Oz-JH-G8j"/>
                 <constraint firstItem="KKz-OD-okw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LGO-no-biW"/>
