@@ -10,7 +10,8 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-
+    
+    @IBOutlet weak var tempImageView: UIImageView!
     @IBOutlet weak var cameraView: UIView!
     
     var captureSession : AVCaptureSession?
@@ -21,7 +22,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -29,7 +30,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidAppear(animated)
         previewLayer?.frame = cameraView.bounds
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,14 +46,14 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         var error : NSError?
         
-//        var input = AVCaptureDeviceInput(device: backCamera)
+        //        var input = AVCaptureDeviceInput(device: backCamera)
         
         
         do {
             
             var input = try AVCaptureDeviceInput(device: backCamera)
             
-
+            
             captureSession?.addInput(input)
             
             stillImageOutput = AVCaptureStillImageOutput()
@@ -73,15 +74,49 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func didPressTakePhoto() {
+        
+        if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo) {
+            videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
+            stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection) {
+                (imageDataSampleBuffer, error) -> Void in
+                
+                if imageDataSampleBuffer != nil {
+                    print("image buffer")
+                    var imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
+                    var dataProvider = CGDataProviderCreateWithCFData(imageData)
+                    var cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, CGColorRenderingIntent.RenderingIntentDefault)
+                    var image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
+                    
+                    self.tempImageView.image = image
+                    self.tempImageView.hidden = false
+                    self.view.sendSubviewToBack(self.cameraView)
+                    
+                }
+            }
+            
+        }
     }
-    */
-
+    
+    
+    var didTakePhoto = Bool()
+    
+    func didPressTakeAnother() {
+        if didTakePhoto == true {
+            tempImageView.hidden = true
+            didTakePhoto = false
+        } else {
+            captureSession?.startRunning()
+            didTakePhoto = true
+            didPressTakePhoto()
+        }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("fdksjfa")
+        didPressTakeAnother()
+    }
+    
+    
+    
 }

@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CameraViewController" customModule="Snap_Note" customModuleProvider="target">
             <connections>
                 <outlet property="cameraView" destination="KKz-OD-okw" id="wEt-La-U04"/>
+                <outlet property="tempImageView" destination="Iyt-J0-s3Y" id="Xth-ZR-cHI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,12 +20,19 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKz-OD-okw">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iyt-J0-s3Y">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
             </subviews>
             <constraints>
                 <constraint firstItem="KKz-OD-okw" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0Oz-JH-G8j"/>
                 <constraint firstItem="KKz-OD-okw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LGO-no-biW"/>
                 <constraint firstItem="KKz-OD-okw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Vtd-es-xnx"/>
+                <constraint firstItem="Iyt-J0-s3Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XuQ-9B-ExA"/>
+                <constraint firstItem="Iyt-J0-s3Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aWI-Mt-eeg"/>
                 <constraint firstItem="KKz-OD-okw" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="b4M-5Q-iRw"/>
+                <constraint firstAttribute="trailing" secondItem="Iyt-J0-s3Y" secondAttribute="trailing" id="bir-c0-G9E"/>
+                <constraint firstAttribute="bottom" secondItem="Iyt-J0-s3Y" secondAttribute="bottom" id="wmb-ut-dmY"/>
             </constraints>
         </view>
     </objects>

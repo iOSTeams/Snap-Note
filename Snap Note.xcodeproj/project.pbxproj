@@ -17,6 +17,7 @@
 		318F5A161D2EC38F00FAC00A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318F5A141D2EC38F00FAC00A /* CameraViewController.swift */; };
 		318F5A171D2EC38F00FAC00A /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318F5A151D2EC38F00FAC00A /* CameraViewController.xib */; };
 		318F5A201D2ECA1D00FAC00A /* ListTwoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318F5A1E1D2ECA1D00FAC00A /* ListTwoTableViewController.swift */; };
+		31971D661D3432FE00219C3F /* ShowNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31971D651D3432FE00219C3F /* ShowNotesViewController.swift */; };
 		31F158121D2EFDC800719DE6 /* ListTwoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F158111D2EFDC800719DE6 /* ListTwoTableViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		318F5A141D2EC38F00FAC00A /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = "Snap Note/Controllers/CameraViewController.swift"; sourceTree = "<group>"; };
 		318F5A151D2EC38F00FAC00A /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraViewController.xib; path = "Snap Note/Controllers/CameraViewController.xib"; sourceTree = "<group>"; };
 		318F5A1E1D2ECA1D00FAC00A /* ListTwoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTwoTableViewController.swift; path = "Snap Note/Controllers/ListTwoTableViewController.swift"; sourceTree = "<group>"; };
+		31971D651D3432FE00219C3F /* ShowNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowNotesViewController.swift; path = "Snap Note/Controllers/ShowNotesViewController.swift"; sourceTree = "<group>"; };
 		31F158111D2EFDC800719DE6 /* ListTwoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListTwoTableViewController.xib; path = "Snap Note/Controllers/ListTwoTableViewController.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +52,7 @@
 		312B72911D2DB74F0037E640 = {
 			isa = PBXGroup;
 			children = (
+				31F080E51D345A5800384039 /* Nib */,
 				318F5A131D2EC11E00FAC00A /* Controller */,
 				312B729C1D2DB74F0037E640 /* Snap Note */,
 				312B729B1D2DB74F0037E640 /* Products */,
@@ -68,8 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				312B729D1D2DB74F0037E640 /* AppDelegate.swift */,
-				312B72A11D2DB74F0037E640 /* Main.storyboard */,
 				312B72A41D2DB74F0037E640 /* Assets.xcassets */,
+				312B72A11D2DB74F0037E640 /* Main.storyboard */,
 				312B72A61D2DB74F0037E640 /* LaunchScreen.storyboard */,
 				312B72A91D2DB74F0037E640 /* Info.plist */,
 			);
@@ -79,15 +82,23 @@
 		318F5A131D2EC11E00FAC00A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				31F158111D2EFDC800719DE6 /* ListTwoTableViewController.xib */,
 				312B729F1D2DB74F0037E640 /* ViewController.swift */,
 				318F5A1E1D2ECA1D00FAC00A /* ListTwoTableViewController.swift */,
 				318F5A0F1D2EC11500FAC00A /* ListNotesTableViewController.swift */,
-				318F5A101D2EC11500FAC00A /* ListNotesTableViewController.xib */,
 				318F5A141D2EC38F00FAC00A /* CameraViewController.swift */,
-				318F5A151D2EC38F00FAC00A /* CameraViewController.xib */,
+				31971D651D3432FE00219C3F /* ShowNotesViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		31F080E51D345A5800384039 /* Nib */ = {
+			isa = PBXGroup;
+			children = (
+				318F5A151D2EC38F00FAC00A /* CameraViewController.xib */,
+				318F5A101D2EC11500FAC00A /* ListNotesTableViewController.xib */,
+				31F158111D2EFDC800719DE6 /* ListTwoTableViewController.xib */,
+			);
+			name = Nib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 				318F5A161D2EC38F00FAC00A /* CameraViewController.swift in Sources */,
 				312B72A01D2DB74F0037E640 /* ViewController.swift in Sources */,
 				312B729E1D2DB74F0037E640 /* AppDelegate.swift in Sources */,
+				31971D661D3432FE00219C3F /* ShowNotesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
