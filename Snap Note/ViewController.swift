@@ -9,35 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .greenColor()
         
         let cameraView : CameraViewController = CameraViewController(nibName: "CameraViewController", bundle: nil)
-//        let one = self.storyboard?.instantiateViewControllerWithIdentifier("ListNotesTableViewController") as! ListNotesTableViewController
-        let two = self.storyboard?.instantiateViewControllerWithIdentifier("ListTwoTableViewController") as! ListTwoTableViewController
         
-//        let one : ListNotesTableViewController = ListNotesTableViewController(nibName: "ListNotesTableViewController", bundle: nil)
+        //let one : ListNotesTableViewController = ListNotesTableViewController(nibName: "ListNotesTableViewController", bundle: nil)
+        //let one = self.storyboard?.instantiateViewControllerWithIdentifier("ListNotesTableViewController") as! ListNotesTableViewController
         let one = self.storyboard?.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
         
-        
-        
-        
-//        let two : ListTwoTableViewController = ListTwoTableViewController(nibName: "ListTwoTableViewController", bundle: nil)
-        
-        
-
-        
-        
-        
-        
-        
-        
-        
-        
+        //let two : ListTwoTableViewController = ListTwoTableViewController(nibName: "ListTwoTableViewController", bundle: nil)
+        let two = self.storyboard?.instantiateViewControllerWithIdentifier("ListTwoTableViewController") as! ListTwoTableViewController
         
         self.scrollView.bounces = false
         
@@ -57,25 +42,18 @@ class ViewController: UIViewController {
         cameraFrame.origin.x = self.view.frame.width
         cameraView.view.frame = cameraFrame
         
-        
         two.view.frame = CGRectMake(2*self.view.frame.width, 0, two.view.frame.size.width, two.view.frame.size.height)
         one.view.frame = CGRectMake(0, 0, two.view.frame.size.width, two.view.frame.size.height)
         
+        //self.scrollView.contentOffset = CGPoint(x: cameraFrame.origin.x, y: cameraFrame.origin.y)
         self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.size.height)
-        
-//        self.scrollView.contentOffset = CGPoint(x: cameraFrame.origin.x, y: cameraFrame.origin.y)
     }
-    
-        
-    
-
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-  
+    
 }
 

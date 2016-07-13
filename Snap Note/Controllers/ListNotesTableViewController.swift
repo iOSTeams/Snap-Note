@@ -9,11 +9,13 @@
 import UIKit
 
 class ListNotesTableViewController: UITableViewController {
+    
+    var notes = [Note]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,19 +32,21 @@ class ListNotesTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 10
+//        Return the number of rows
+        return notes.count
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListNotesTableViewCell
+        let row = indexPath.row
+        let note = notes[row]
         
-        cell.textLabel?.text = "list2"
+        cell.titleLabel.text = note.title
+//        cell.modificationTimeLabel.text = note.modifictionTime.convertToString
         
         return cell
     }
@@ -94,8 +98,19 @@ class ListNotesTableViewController: UITableViewController {
     }
     */
     
+    // MARK: - Segues
+
     @IBAction func unwindToListNotesViewController(segue: UIStoryboardSegue) {
-        
+
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            if identifier == "addNote" {
+                print("addNote")
+            }
+        }
     }
     
 }

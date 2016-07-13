@@ -17,7 +17,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     var captureSession : AVCaptureSession?
     var stillImageOutput : AVCaptureStillImageOutput?
     var previewLayer : AVCaptureVideoPreviewLayer?
-    
+    var didTakePhoto = Bool()
     
     
     override func viewDidLoad() {
@@ -41,18 +41,14 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         captureSession = AVCaptureSession()
         captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
-        
-        var backCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        
+        let backCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         var error : NSError?
         
         //        var input = AVCaptureDeviceInput(device: backCamera)
         
-        
         do {
             
             var input = try AVCaptureDeviceInput(device: backCamera)
-            
             
             captureSession?.addInput(input)
             
@@ -75,7 +71,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func didPressTakePhoto() {
-        
         if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo) {
             videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
             stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection) {
@@ -91,15 +86,10 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                     self.tempImageView.image = image
                     self.tempImageView.hidden = false
                     self.view.sendSubviewToBack(self.cameraView)
-                    
                 }
             }
-            
         }
     }
-    
-    
-    var didTakePhoto = Bool()
     
     func didPressTakeAnother() {
         if didTakePhoto == true {
@@ -116,7 +106,4 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         print("fdksjfa")
         didPressTakeAnother()
     }
-    
-    
-    
 }
