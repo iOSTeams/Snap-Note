@@ -19,6 +19,7 @@
 		318F5A171D2EC38F00FAC00A /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318F5A151D2EC38F00FAC00A /* CameraViewController.xib */; };
 		318F5A201D2ECA1D00FAC00A /* ListTwoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318F5A1E1D2ECA1D00FAC00A /* ListTwoTableViewController.swift */; };
 		31971D661D3432FE00219C3F /* DisplayNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31971D651D3432FE00219C3F /* DisplayNoteViewController.swift */; };
+		31DD14BB1D382971003D713B /* NSDate+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DD14BA1D382971003D713B /* NSDate+convertToString.swift */; };
 		31EF75C11D360BEA00AD18C8 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF75C01D360BEA00AD18C8 /* Note.swift */; };
 		31EF75C41D36120200AD18C8 /* ListNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF75C31D36120200AD18C8 /* ListNotesTableViewCell.swift */; };
 		31EF75C61D3621D300AD18C8 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF75C51D3621D300AD18C8 /* RealmHelper.swift */; };
@@ -39,6 +40,7 @@
 		318F5A151D2EC38F00FAC00A /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraViewController.xib; path = "Snap Note/Controllers/CameraViewController.xib"; sourceTree = "<group>"; };
 		318F5A1E1D2ECA1D00FAC00A /* ListTwoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTwoTableViewController.swift; path = "Snap Note/Controllers/ListTwoTableViewController.swift"; sourceTree = "<group>"; };
 		31971D651D3432FE00219C3F /* DisplayNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayNoteViewController.swift; path = "Snap Note/Controllers/DisplayNoteViewController.swift"; sourceTree = "<group>"; };
+		31DD14BA1D382971003D713B /* NSDate+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+convertToString.swift"; sourceTree = "<group>"; };
 		31EF75C01D360BEA00AD18C8 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = "Snap Note/Model/Note.swift"; sourceTree = "<group>"; };
 		31EF75C31D36120200AD18C8 /* ListNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListNotesTableViewCell.swift; path = "Snap Note/View/ListNotesTableViewCell.swift"; sourceTree = "<group>"; };
 		31EF75C51D3621D300AD18C8 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmHelper.swift; path = "Snap Note/RealmHelper.swift"; sourceTree = "<group>"; };
@@ -63,6 +65,8 @@
 		312B72911D2DB74F0037E640 = {
 			isa = PBXGroup;
 			children = (
+				31DD14BA1D382971003D713B /* NSDate+convertToString.swift */,
+				31DD14B91D382901003D713B /* Helper */,
 				31EF75C51D3621D300AD18C8 /* RealmHelper.swift */,
 				31EF75C21D3611DA00AD18C8 /* View */,
 				31EF75BF1D360BCF00AD18C8 /* Model */,
@@ -105,6 +109,13 @@
 				31971D651D3432FE00219C3F /* DisplayNoteViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		31DD14B91D382901003D713B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 		31EF75BF1D360BCF00AD18C8 /* Model */ = {
@@ -282,6 +293,7 @@
 				318F5A161D2EC38F00FAC00A /* CameraViewController.swift in Sources */,
 				31EF75C61D3621D300AD18C8 /* RealmHelper.swift in Sources */,
 				312B72A01D2DB74F0037E640 /* ViewController.swift in Sources */,
+				31DD14BB1D382971003D713B /* NSDate+convertToString.swift in Sources */,
 				312B729E1D2DB74F0037E640 /* AppDelegate.swift in Sources */,
 				31971D661D3432FE00219C3F /* DisplayNoteViewController.swift in Sources */,
 				31EF75C41D36120200AD18C8 /* ListNotesTableViewCell.swift in Sources */,

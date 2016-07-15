@@ -98,20 +98,25 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDj-nd-9ad">
                                             <rect key="frame" x="25" y="8" width="276" height="26"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQc-bJ-GXU">
                                             <rect key="frame" x="25" y="42" width="170" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QzP-p6-odv">
+                                            <rect key="frame" x="397" y="-34" width="240" height="128"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="modificationTimeLabel" destination="VQc-bJ-GXU" id="N19-8c-LfZ"/>
                                     <outlet property="titleLabel" destination="ZDj-nd-9ad" id="Rzz-6a-JcN"/>
+                                    <segue destination="Bzc-O7-kFG" kind="show" identifier="display" id="zKW-Rm-8kw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -148,23 +153,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q8p-Lq-UQH">
+                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pte-No-2vj">
                                 <rect key="frame" x="0.0" y="104" width="600" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="4CY-4o-5uV" appends="YES" id="hZA-np-apa"/>
-                                </connections>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q8p-Lq-UQH">
-                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="pte-No-2vj" firstAttribute="leading" secondItem="NFh-aQ-dBo" secondAttribute="leading" id="7Hp-ok-7Iq"/>
                             <constraint firstItem="Q8p-Lq-UQH" firstAttribute="top" secondItem="YXn-UD-fdg" secondAttribute="bottom" id="BP5-Ab-jTh"/>
@@ -176,9 +179,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Note" id="EjE-Y8-6wU">
-                        <barButtonItem key="leftBarButtonItem" title="Backk" id="cZW-TV-EK9">
+                        <barButtonItem key="leftBarButtonItem" title="Backk" id="p4D-EA-Kly">
                             <connections>
-                                <segue destination="0j5-tv-k7b" kind="unwind" identifier="save" unwindAction="unwindToListNotesViewController:" id="8mE-Hq-1ck"/>
+                                <segue destination="0j5-tv-k7b" kind="unwind" identifier="save" unwindAction="unwindToListNotesViewController:" id="ciP-Gm-6a9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -189,11 +192,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqI-8o-DeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0j5-tv-k7b" userLabel="Exit" sceneMemberID="exit"/>
-                <swipeGestureRecognizer direction="right" id="4CY-4o-5uV">
-                    <connections>
-                        <segue destination="0j5-tv-k7b" kind="unwind" identifier="save" unwindAction="unwindToListNotesViewController:" id="G1g-Ng-jFJ"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1816" y="401"/>
         </scene>
@@ -221,4 +219,7 @@
             <point key="canvasLocation" x="328" y="401"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zKW-Rm-8kw"/>
+    </inferredMetricsTieBreakers>
 </document>

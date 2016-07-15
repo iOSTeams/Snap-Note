@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CameraViewController" customModule="Snap_Note" customModuleProvider="target">
             <connections>
                 <outlet property="cameraView" destination="KKz-OD-okw" id="wEt-La-U04"/>
+                <outlet property="saveButton" destination="IgT-nk-iS9" id="Hld-ag-snv"/>
                 <outlet property="tempImageView" destination="Iyt-J0-s3Y" id="Xth-ZR-cHI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,14 +24,23 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iyt-J0-s3Y">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgT-nk-iS9">
+                    <rect key="frame" x="277" y="285" width="46" height="30"/>
+                    <state key="normal" title="Save"/>
+                    <connections>
+                        <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="Qbk-Sa-gG3"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="KKz-OD-okw" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0Oz-JH-G8j"/>
+                <constraint firstItem="IgT-nk-iS9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1Zp-OJ-Ifi"/>
                 <constraint firstItem="KKz-OD-okw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LGO-no-biW"/>
                 <constraint firstItem="KKz-OD-okw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Vtd-es-xnx"/>
                 <constraint firstItem="Iyt-J0-s3Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XuQ-9B-ExA"/>
                 <constraint firstItem="Iyt-J0-s3Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aWI-Mt-eeg"/>
                 <constraint firstItem="KKz-OD-okw" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="b4M-5Q-iRw"/>
+                <constraint firstItem="IgT-nk-iS9" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="bX5-RA-eBW"/>
                 <constraint firstAttribute="trailing" secondItem="Iyt-J0-s3Y" secondAttribute="trailing" id="bir-c0-G9E"/>
                 <constraint firstAttribute="bottom" secondItem="Iyt-J0-s3Y" secondAttribute="bottom" id="wmb-ut-dmY"/>
             </constraints>

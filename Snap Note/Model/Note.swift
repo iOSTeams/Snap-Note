@@ -9,8 +9,9 @@
 import Foundation
 import RealmSwift
 
-class Note/*:Object*/{
-    /*dynamic*/ var title = ""
-    /*dynamic*/ var content = ""
-    /*dynamic*/ var modifictionTime = NSDate()
+class Note:Object{
+    dynamic var title = ""
+    dynamic var content = ""
+    dynamic var modificationTime = NSDate()
+    dynamic var image : NSData?
 }

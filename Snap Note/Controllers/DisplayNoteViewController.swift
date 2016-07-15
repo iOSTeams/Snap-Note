@@ -7,13 +7,25 @@
 //
 
 import UIKit
-
+import RealmSwift
 class DisplayNoteViewController: UIViewController {
     
     var note : Note?
     
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if let note = note {
+            titleTextField.text = note.title
+            contentTextView.text = note.content
+        } else {
+            titleTextField.text = ""
+            contentTextView.text = ""
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,33 +51,25 @@ class DisplayNoteViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let listNotesTableViewController = segue.destinationViewController as! ListNotesTableViewController
-        
-        if let identifier = segue.identifier {
-            if identifier == "save" {
-                let content = contentTextView.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).characters.count
-                let title = titleTextField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).characters.count
-                print("The content is \(content!)")
-                if let note = note {
-                    if ( content! > 0) || (title! > 0) {
-                        let newNote = Note()
-                        newNote.title = titleTextField.text ?? ""
-                        newNote.content = contentTextView.text ?? ""
-//                        RealmHelper.updateNote(note, newNote: newNote)
-                        listNotesTableViewController.notes.append(newNote)
-                    } else {
-                        print("delete note")
-//                        RealmHelper.deleteNote(note)
-                    }
-                } else if (contentTextView.text?.characters.count > 0) || (titleTextField.text?.characters.count > 0) {
-                    let note = Note()
-                    note.title = titleTextField.text ?? ""
-                    note.content = contentTextView.text ?? ""
-//                    note.modificationTime = NSDate()
-//                    RealmHelper.addNote(note)
-                }
-//                listNotesTableViewController.notes = RealmHelper.retrieveNote()
+        if segue.identifier == "save" {
+            
+            if let note = note {
                 
+                let newNote = Note()
+                newNote.title = titleTextField.text ?? ""
+                newNote.content = contentTextView.text ?? ""
+                RealmHelper.updateNote(note, newNote: newNote)
+            } else {
+                
+                let note = Note()
+                note.title = titleTextField.text ?? ""
+                note.content = contentTextView.text ?? ""
+                note.modificationTime = NSDate()
+                
+                RealmHelper.addNote(note)
             }
+            
+            listNotesTableViewController.notes = RealmHelper.retrieveNotes()
         }
     }
 }

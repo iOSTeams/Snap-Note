@@ -21,6 +21,9 @@ class ViewController: UIViewController {
         //let one = self.storyboard?.instantiateViewControllerWithIdentifier("ListNotesTableViewController") as! ListNotesTableViewController
         let one = self.storyboard?.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
         
+        let listNotesTableViewController = one.viewControllers.first as! ListNotesTableViewController
+        cameraView.listNotesTableViewController = listNotesTableViewController
+        
         //let two : ListTwoTableViewController = ListTwoTableViewController(nibName: "ListTwoTableViewController", bundle: nil)
         let two = self.storyboard?.instantiateViewControllerWithIdentifier("ListTwoTableViewController") as! ListTwoTableViewController
         
